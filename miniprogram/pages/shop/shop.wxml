@@ -1,0 +1,33 @@
+<view class="page">
+  <view class="eyebrow">Seasonal Bouquets</view>
+  <view class="section-title">当季花礼</view>
+
+  <scroll-view class="filter-scroll" scroll-x="true" enable-flex="true">
+    <view class="filter-row">
+      <button
+        wx:for="{{filters}}"
+        wx:key="id"
+        class="filter {{activeFilter === item.id ? 'active' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="setFilter"
+      >
+        {{item.label}}
+      </button>
+    </view>
+  </scroll-view>
+
+  <view class="grid">
+    <view class="product card" wx:for="{{products}}" wx:key="id" data-id="{{item.id}}" bindtap="openProduct">
+      <image src="{{item.image}}" mode="aspectFill" />
+      <view class="product-body">
+        <text class="muted">{{item.description}}</text>
+        <text class="product-name">{{item.name}}</text>
+        <text class="availability">{{item.availability}}</text>
+        <view class="product-foot">
+          <text class="price">{{item.priceLabel}}</text>
+          <text class="detail">详情</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

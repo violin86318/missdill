@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/shop/shop",
+    "pages/product/detail",
+    "pages/class/detail",
+    "pages/custom/event",
+    "pages/cart/cart",
+    "pages/order/confirm",
+    "pages/about/about"
+  ],
+  "window": {
+    "navigationBarTitleText": "MissDill",
+    "navigationBarBackgroundColor": "#304b2f",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f6f2eb"
+  },
+  "tabBar": {
+    "color": "#747265",
+    "selectedColor": "#304b2f",
+    "backgroundColor": "#fffdf8",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/home/home",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "花礼"
+      },
+      {
+        "pagePath": "pages/custom/event",
+        "text": "定制"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "购物袋"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "style": "v2"
+}

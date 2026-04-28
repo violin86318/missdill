@@ -1,0 +1,114 @@
+.home {
+  background: #f6f2eb;
+}
+
+.hero {
+  height: 900rpx;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-image,
+.hero-mask {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.hero-mask {
+  background: linear-gradient(180deg, rgba(12, 18, 11, 0.35), rgba(12, 18, 11, 0.78));
+}
+
+.hero-content {
+  bottom: 56rpx;
+  color: #fff;
+  left: 32rpx;
+  position: absolute;
+  right: 32rpx;
+}
+
+.brand-dot {
+  align-items: center;
+  background: #304b2f;
+  border-radius: 50%;
+  display: flex;
+  font-family: Georgia, "Times New Roman", serif;
+  height: 104rpx;
+  justify-content: center;
+  margin-bottom: 70rpx;
+  width: 104rpx;
+}
+
+.hero-eyebrow {
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.hero-title {
+  display: flex;
+  flex-direction: column;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 76rpx;
+  line-height: 1.04;
+  margin-bottom: 30rpx;
+}
+
+.hero-copy {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 30rpx;
+  line-height: 1.8;
+  margin-bottom: 34rpx;
+}
+
+.hero-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.hero-secondary {
+  border-color: rgba(255, 255, 255, 0.58);
+  color: #fff;
+}
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26rpx;
+  margin-bottom: 34rpx;
+}
+
+.product-card image {
+  height: 420rpx;
+  width: 100%;
+}
+
+.product-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+  padding: 28rpx;
+}
+
+.product-name {
+  color: #24251f;
+  font-size: 34rpx;
+  font-weight: 800;
+}
+
+.availability {
+  color: #304b2f;
+  font-size: 25rpx;
+  font-weight: 700;
+}
+
+.price {
+  color: #24251f;
+  font-size: 36rpx;
+  font-weight: 900;
+}
+
+.mono {
+  font-family: Menlo, Consolas, monospace;
+}

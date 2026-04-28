@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MissDill 花艺设计工作室 | 福州花礼与花艺沙龙</title>
+    <meta
+      name="description"
+      content="MissDill 是福州花艺设计工作室。选购当季花礼、预约定制花礼、报名花艺沙龙，并通过微信小程序完成下单。"
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260428-sprint3" />
+  </head>
+  <body>
+    <header class="site-header" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="MissDill 首页">
+        <span class="brand-mark">MissDill</span>
+        <span>
+          <strong>MissDill</strong>
+          <em>花艺设计工作室</em>
+        </span>
+      </a>
+      <nav class="nav-links" aria-label="页面导航">
+        <a href="#shop">花礼作品</a>
+        <a href="#atelier">关于我们</a>
+        <a href="#classes">花艺沙龙</a>
+        <a href="#commerce">电商方案</a>
+      </nav>
+      <button class="bag-button" type="button" data-cart-open aria-label="打开购物袋">
+        <span>购物袋</span>
+        <strong data-cart-count>0</strong>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <img class="hero-image" src="./assets/hero-atelier.png" alt="MissDill 花艺工作台与小院花束" />
+        <div class="hero-scrim"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Fuzhou Floral Atelier</p>
+          <h1 id="hero-title">
+            MissDill<br />
+            花艺设计工作室
+          </h1>
+          <p class="hero-copy">
+            在绿意与花香的日常里，挑选一束有性格的花礼，或预约一堂安静的花艺课。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#shop">选购当季花礼</a>
+            <a class="button ghost" href="#custom-order">定制专属花礼</a>
+          </div>
+        </div>
+        <aside class="hero-note" aria-label="工作室信息">
+          <span>MissDill02</span>
+          <strong>福州 · 绿意与花香的日常</strong>
+        </aside>
+      </section>
+
+      <section class="shop-section" id="shop" aria-labelledby="shop-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Seasonal Bouquets</p>
+            <h2 id="shop-title">当季花礼</h2>
+          </div>
+          <a href="#custom-order">查看定制服务 -></a>
+        </div>
+
+        <div class="filter-bar" role="tablist" aria-label="花礼分类" data-filter-bar></div>
+
+        <div class="shop-layout">
+          <div class="product-grid" data-product-grid aria-live="polite"></div>
+
+          <aside class="mini-program-card" aria-label="小程序入口">
+            <div class="mini-program-entry" aria-hidden="true">
+              <span>MissDill</span>
+              <small>微信小程序</small>
+            </div>
+            <h3>小程序承接交易</h3>
+            <p>网站负责种草与展示，点击商品后可同步跳转小程序完成支付、配送和售后。</p>
+            <button class="button primary compact" type="button" data-cart-open>查看购物袋</button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="atelier-section" id="atelier" aria-labelledby="atelier-title">
+        <div class="atelier-copy">
+          <p class="eyebrow">Atelier</p>
+          <h2 id="atelier-title">我们的花艺日常</h2>
+          <p>
+            公开内容呈现出的 MissDill 很适合做成“花艺工作室 + 内容型电商”：用绿墙小院、工作台、拆箱制作、花材知识和中式插花建立审美信任，再把当季花礼与课程预约放在最短购买路径上。
+          </p>
+          <a class="text-link" href="https://www.xiaohongshu.com/user/profile/5984fb075e87e73924ad54f6" target="_blank" rel="noreferrer">
+            查看小红书内容 ->
+          </a>
+        </div>
+        <img src="./assets/atelier-courtyard.png" alt="MissDill 绿墙小院" />
+      </section>
+
+      <section class="classes-section" id="classes" aria-labelledby="classes-title">
+        <img src="./assets/class-workshop.png" alt="花艺沙龙课堂" />
+        <div class="classes-copy">
+          <p class="eyebrow">Floral Classes</p>
+          <h2 id="classes-title">花艺沙龙 · 预约报名</h2>
+          <p>把微博、小红书里受欢迎的制作过程和花材审美，转化成可以报名的线下课程。</p>
+          <div class="class-types">
+            <span>基础花艺课</span>
+            <span>花束包装课</span>
+            <span>中式瓶花课</span>
+            <span>企业团建</span>
+          </div>
+        </div>
+        <a class="button ghost light" href="#custom-order">查看课程日历</a>
+      </section>
+
+      <section class="video-section" id="videos" aria-labelledby="video-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Video Journal</p>
+            <h2 id="video-title">视频内容</h2>
+          </div>
+          <span>官网用主视觉 + 小红书/视频号可复用短内容</span>
+        </div>
+        <div class="video-layout">
+          <article class="feature-video-card">
+            <div class="video-frame">
+              <video data-main-video muted playsinline loop controls preload="metadata"></video>
+              <img data-video-fallback src="./assets/inspiration-bouquet.png" alt="MissDill 春日花束视频封面" />
+              <button class="play-button" type="button" data-video-play>播放</button>
+            </div>
+            <div class="feature-video-copy">
+              <p class="eyebrow" data-video-label>Video</p>
+              <h3 data-video-title>视频内容</h3>
+              <p data-video-summary></p>
+            </div>
+          </article>
+
+          <div class="video-story-list" data-video-story-list></div>
+        </div>
+      </section>
+
+      <section class="commerce-section" id="commerce" aria-labelledby="commerce-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Commerce Stack</p>
+            <h2 id="commerce-title">电商与后台建议</h2>
+          </div>
+          <span>先轻后重，尽量复用小程序交易能力。</span>
+        </div>
+        <div class="commerce-grid">
+          <article>
+            <strong>第一阶段</strong>
+            <h3>官网做品牌与导购</h3>
+            <p>官网负责 SEO、作品集、课程介绍、定制表单和内容沉淀；购买按钮跳转 MissDill 小程序或展示小程序码。</p>
+          </article>
+          <article>
+            <strong>第二阶段</strong>
+            <h3>共用商品与订单后台</h3>
+            <p>后台管理 SKU、库存、价格、配送日期、替换花材规则、课程名额和订单状态；官网与小程序读取同一套数据。</p>
+          </article>
+          <article>
+            <strong>第三阶段</strong>
+            <h3>会员与复购运营</h3>
+            <p>沉淀客户纪念日、常用地址、企业客户、礼卡余额和售后记录，用订阅消息/服务号触达复购。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="custom-section" id="custom-order" aria-labelledby="custom-title">
+        <div>
+          <p class="eyebrow">Custom Order</p>
+          <h2 id="custom-title">定制花礼</h2>
+          <p>适合婚礼、小型活动、商业空间、纪念日和企业花礼。表单提交后可进入微信沟通或转小程序支付定金。</p>
+        </div>
+        <form class="custom-form">
+          <label>
+            场景
+            <select name="scene">
+              <option>生日 / 纪念日</option>
+              <option>开业 / 乔迁</option>
+              <option>婚礼 / 活动</option>
+              <option>花艺课程</option>
+            </select>
+          </label>
+          <label>
+            预算
+            <select name="budget">
+              <option>¥300 - ¥500</option>
+              <option>¥500 - ¥1000</option>
+              <option>¥1000 - ¥3000</option>
+              <option>¥3000 以上</option>
+            </select>
+          </label>
+          <label>
+            联系方式
+            <input name="contact" type="text" placeholder="微信 / 手机号" />
+          </label>
+          <button class="button primary" type="submit">提交定制需求</button>
+          <p class="form-status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <aside class="cart-drawer" data-cart-drawer aria-label="购物袋" aria-hidden="true">
+      <div class="cart-panel">
+        <div class="cart-head">
+          <div>
+            <p class="eyebrow">Shopping Bag</p>
+            <h2>购物袋</h2>
+          </div>
+          <button type="button" data-cart-close aria-label="关闭购物袋">×</button>
+        </div>
+        <div class="cart-items" data-cart-items>
+          <p class="empty-cart">还没有选择花礼。</p>
+        </div>
+        <div class="cart-total">
+          <span>合计</span>
+          <strong data-cart-total>¥0</strong>
+        </div>
+        <button class="button primary full" type="button" data-checkout>去小程序下单</button>
+        <div class="handoff-status" data-handoff-status aria-live="polite"></div>
+        <p class="cart-note">原型中暂不接入真实支付，生产环境建议用微信小程序承接支付、配送和售后。</p>
+      </div>
+    </aside>
+
+    <aside class="product-dialog" data-product-dialog aria-hidden="true">
+      <div class="product-dialog-panel" role="dialog" aria-modal="true" aria-labelledby="product-dialog-title">
+        <button class="dialog-close" type="button" data-dialog-close aria-label="关闭商品详情">×</button>
+        <img data-dialog-image src="./assets/product-spring-bouquet.png" alt="" />
+        <div class="product-dialog-copy">
+          <p class="eyebrow" data-dialog-availability></p>
+          <h2 id="product-dialog-title" data-dialog-title></h2>
+          <p data-dialog-detail></p>
+          <dl>
+            <div>
+              <dt>价格</dt>
+              <dd data-dialog-price></dd>
+            </div>
+            <div>
+              <dt>预约/配送</dt>
+              <dd data-dialog-delivery></dd>
+            </div>
+          </dl>
+          <div class="dialog-actions">
+            <button class="button primary" type="button" data-dialog-add>加入购物袋</button>
+            <button class="button ghost light" type="button" data-dialog-handoff>查看小程序交接</button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <footer class="site-footer">
+      <div>
+        <span class="footer-logo">MissDill</span>
+        <p>花艺设计工作室 · 福州</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://weibo.com/u/3018685191" target="_blank" rel="noreferrer">微博</a>
+        <a href="https://www.xiaohongshu.com/user/profile/5984fb075e87e73924ad54f6" target="_blank" rel="noreferrer">小红书</a>
+        <span>微信服务号：MissDill</span>
+      </div>
+    </footer>
+
+    <script src="./content-data.js?v=20260428-sprint3"></script>
+    <script src="./app.js?v=20260428-sprint3"></script>
+  </body>
+</html>

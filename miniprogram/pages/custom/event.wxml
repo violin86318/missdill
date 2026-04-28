@@ -1,0 +1,42 @@
+<view class="page">
+  <view class="eyebrow">Custom Order</view>
+  <view class="section-title">定制花礼</view>
+  <view class="muted">适合婚礼、小型活动、商业空间、纪念日和企业花礼。先提交需求，再由工作室确认花材、预算和日期。</view>
+  <view class="safe-note" wx:if="{{intent}}">
+    已从官网带入：{{intent.name}}。提交后可由工作室继续确认花材、预算和搭建时间。
+  </view>
+
+  <form class="form card" bindsubmit="submitLead">
+    <view class="field">
+      <text>场景</text>
+      <picker range="{{scenes}}" value="{{sceneIndex}}" bindchange="setScene">
+        <view class="control">{{scenes[sceneIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <text>预算</text>
+      <picker range="{{budgets}}" value="{{budgetIndex}}" bindchange="setBudget">
+        <view class="control">{{budgets[budgetIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <text>期望日期</text>
+      <input class="control" name="date" placeholder="例如 2026-05-20" />
+    </view>
+
+    <view class="field">
+      <text>联系方式</text>
+      <input class="control" name="contact" placeholder="微信 / 手机号" />
+    </view>
+
+    <view class="field">
+      <text>备注</text>
+      <textarea class="textarea" name="notes" placeholder="喜欢的颜色、用途、配送区域等" />
+    </view>
+
+    <button class="button" form-type="submit">提交定制需求</button>
+    <view class="status" wx:if="{{status}}">{{status}}</view>
+  </form>
+</view>

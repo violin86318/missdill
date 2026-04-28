@@ -1,0 +1,41 @@
+.cover {
+  height: 720rpx;
+  width: 100%;
+}
+
+.detail-content {
+  margin-top: -34rpx;
+  position: relative;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 26rpx;
+  margin: 34rpx 0;
+  padding: 30rpx;
+}
+
+.info-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8rpx;
+}
+
+.label {
+  color: #304b2f;
+  font-size: 27rpx;
+  font-weight: 800;
+}
+
+.value {
+  color: #747265;
+  font-size: 28rpx;
+  line-height: 1.7;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}

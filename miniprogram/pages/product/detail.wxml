@@ -1,0 +1,25 @@
+<view class="detail-page" wx:if="{{product}}">
+  <image class="cover" src="{{product.image}}" mode="aspectFill" />
+  <view class="page detail-content">
+    <view class="eyebrow">{{product.availability}}</view>
+    <view class="section-title">{{product.name}}</view>
+    <view class="muted">{{product.detail}}</view>
+
+    <view class="info card">
+      <view class="info-row">
+        <text class="label">价格</text>
+        <text class="value">{{product.priceLabel}}</text>
+      </view>
+      <view class="info-row">
+        <text class="label">预约/配送</text>
+        <text class="value">{{product.deliveryNotes}}</text>
+      </view>
+    </view>
+
+    <view class="actions">
+      <button class="button" bindtap="addToCart">{{product.type === 'class' ? '预约课程' : '加入购物袋'}}</button>
+      <button class="button secondary" bindtap="goCart">查看购物袋</button>
+      <button class="button secondary" bindtap="goCustom">定制相似花礼</button>
+    </view>
+  </view>
+</view>

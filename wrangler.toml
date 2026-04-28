@@ -1,0 +1,12 @@
+name = "missdill-site-proxy"
+main = "cloudflare/worker.js"
+compatibility_date = "2025-12-01"
+
+workers_dev = true
+
+routes = [
+  { pattern = "missdill.beyondmotion.net/*", zone_name = "beyondmotion.net" }
+]
+
+[vars]
+ORIGIN_BASE = "https://violin86318.github.io/missdill"

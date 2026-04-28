@@ -1,0 +1,39 @@
+<view class="home">
+  <view class="hero">
+    <image class="hero-image" src="/images/hero-atelier.png" mode="aspectFill" />
+    <view class="hero-mask"></view>
+    <view class="hero-content">
+      <view class="brand-dot">MissDill</view>
+      <view class="eyebrow hero-eyebrow">Fuzhou Floral Atelier</view>
+      <view class="hero-title">
+        <text>MissDill</text>
+        <text>花艺设计工作室</text>
+      </view>
+      <view class="hero-copy">在绿意与花香的日常里，挑选一束有性格的花礼，或预约一堂安静的花艺课。</view>
+      <view class="hero-actions">
+        <button class="button" bindtap="goShop">选购当季花礼</button>
+        <button class="button secondary hero-secondary" bindtap="goCustom">定制专属花礼</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="page">
+    <view class="eyebrow">Seasonal Bouquets</view>
+    <view class="section-title">当季花礼</view>
+    <view class="product-list">
+      <view class="product-card card" wx:for="{{featured}}" wx:key="id" data-id="{{item.id}}" bindtap="openProduct">
+        <image src="{{item.image}}" mode="aspectFill" />
+        <view class="product-copy">
+          <text class="muted">{{item.description}}</text>
+          <text class="product-name">{{item.name}}</text>
+          <text class="availability">{{item.availability}}</text>
+          <text class="price">{{item.priceLabel}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="safe-note">
+      官网可以通过 <text class="mono">/pages/product/detail?id=商品ID</text> 直接进入商品详情；真实 AppID 和 URL Scheme 确认后即可接入官网跳转。
+    </view>
+  </view>
+</view>

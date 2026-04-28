@@ -1,0 +1,21 @@
+.about-cover {
+  height: 430rpx;
+  margin-bottom: 34rpx;
+  width: 100%;
+}
+
+.contact {
+  color: #304b2f;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  gap: 14rpx;
+  margin: 34rpx 0;
+  padding: 30rpx;
+}
+
+.contact-title {
+  color: #24251f;
+  font-size: 32rpx;
+  font-weight: 900;
+}

@@ -1,0 +1,20 @@
+<view class="page" wx:if="{{product}}">
+  <image class="class-cover card" src="{{product.image}}" mode="aspectFill" />
+  <view class="eyebrow">Floral Classes</view>
+  <view class="section-title">{{product.name}}</view>
+  <view class="muted">{{product.detail}}</view>
+
+  <view class="class-grid">
+    <view>基础花艺课</view>
+    <view>花束包装课</view>
+    <view>中式瓶花课</view>
+    <view>企业团建</view>
+  </view>
+
+  <view class="safe-note">
+    课程日期、人数和作品主题可以后续接入后台日历；当前为可预约信息架构预览。
+  </view>
+
+  <button class="button" bindtap="reserveClass">加入预约袋</button>
+  <button class="button secondary" bindtap="goCustom">咨询团建/包场</button>
+</view>

@@ -1,0 +1,15 @@
+<view class="page">
+  <image class="about-cover card" src="/images/atelier-courtyard.png" mode="aspectFill" />
+  <view class="eyebrow">Atelier</view>
+  <view class="section-title">我们的花艺日常</view>
+  <view class="muted">
+    MissDill 是福州花艺设计工作室。小程序负责花礼购买、课程预约、定制需求和订单交接；官网负责品牌展示、作品集、视频内容和 SEO。
+  </view>
+
+  <view class="card contact">
+    <view class="contact-title">关注我们</view>
+    <view wx:for="{{channels}}" wx:key="*this">{{item}}</view>
+  </view>
+
+  <button class="button" bindtap="goCustom">咨询定制花礼</button>
+</view>

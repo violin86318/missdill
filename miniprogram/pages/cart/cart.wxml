@@ -1,0 +1,28 @@
+<view class="page">
+  <view class="eyebrow">Shopping Bag</view>
+  <view class="section-title">购物袋</view>
+  <view class="safe-note" wx:if="{{handoffNotice}}">{{handoffNotice}}</view>
+
+  <view wx:if="{{cart.length}}" class="cart-list">
+    <view class="cart-item card" wx:for="{{cart}}" wx:key="id">
+      <image src="{{item.image}}" mode="aspectFill" />
+      <view class="cart-copy">
+        <text class="name">{{item.name}}</text>
+        <text class="muted">{{item.priceLabel}} × {{item.quantity}}</text>
+        <button class="remove" data-id="{{item.id}}" bindtap="removeItem">移除</button>
+      </view>
+    </view>
+
+    <view class="total">
+      <text>合计</text>
+      <text>¥{{total}}</text>
+    </view>
+
+    <button class="button" bindtap="goOrderConfirm">填写配送信息</button>
+  </view>
+
+  <view wx:else class="empty card">
+    <view>还没有选择花礼。</view>
+    <button class="button" bindtap="goShop">去选花礼</button>
+  </view>
+</view>

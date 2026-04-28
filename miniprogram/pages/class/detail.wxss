@@ -1,0 +1,27 @@
+.class-cover {
+  height: 430rpx;
+  margin-bottom: 34rpx;
+  width: 100%;
+}
+
+.class-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18rpx;
+  margin: 34rpx 0;
+}
+
+.class-grid view {
+  border: 1rpx solid rgba(48, 75, 47, 0.2);
+  border-radius: 999rpx;
+  color: #304b2f;
+  box-sizing: border-box;
+  flex: 0 0 calc(50% - 9rpx);
+  font-size: 27rpx;
+  padding: 20rpx;
+  text-align: center;
+}
+
+.button {
+  margin-top: 20rpx;
+}
