@@ -1,4 +1,5 @@
-const data = window.MISSDILL_DATA;
+const fallbackData = window.MISSDILL_DATA;
+let data = fallbackData;
 
 const header = document.querySelector(".site-header");
 const filterBar = document.querySelector("[data-filter-bar]");
@@ -58,6 +59,86 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function mergeById(fallbackItems = [], remoteItems = []) {
+  const remoteById = new Map(remoteItems.filter((item) => item?.id).map((item) => [item.id, item]));
+  const merged = fallbackItems.map((item) => {
+    const remote = remoteById.get(item.id);
+    if (!remote) return item;
+    remoteById.delete(item.id);
+    return { ...item, ...remote };
+  });
+  return [...merged, ...remoteById.values()];
+}
+
+function normalizeProduct(product) {
+  const categories = Array.isArray(product.categories)
+    ? product.categories
+    : String(product.categories || "")
+        .split(",")
+        .map((item) => item.trim())
+        .filter(Boolean);
+  const price = Number(product.price);
+
+  return {
+    ...product,
+    categories,
+    price: Number.isFinite(price) ? price : 0,
+    priceLabel: product.priceLabel || (Number.isFinite(price) ? currency.format(price) : "按项目报价"),
+    actionLabel: product.actionLabel || (product.type === "class" ? "预约" : product.type === "custom" ? "咨询" : "加入"),
+    miniProgramPath: product.miniProgramPath || `/pages/product/detail?id=${product.id}`,
+  };
+}
+
+function mergeContentData(remoteData = {}) {
+  const mergedProducts = mergeById(fallbackData.products, remoteData.products).map(normalizeProduct);
+  const mergedFilters = mergeById(fallbackData.filters, remoteData.filters)
+    .filter((filter) => filter?.id && filter?.label);
+  const mergedStories = mergeById(fallbackData.videos.stories, remoteData.videos?.stories)
+    .filter((story) => story?.title);
+
+  return {
+    ...fallbackData,
+    ...remoteData,
+    miniProgram: {
+      ...fallbackData.miniProgram,
+      ...(remoteData.miniProgram || {}),
+    },
+    filters: mergedFilters,
+    products: mergedProducts,
+    videos: {
+      ...fallbackData.videos,
+      ...(remoteData.videos || {}),
+      feature: {
+        ...fallbackData.videos.feature,
+        ...(remoteData.videos?.feature || {}),
+      },
+      stories: mergedStories,
+    },
+  };
+}
+
+async function loadRemoteContent() {
+  try {
+    const response = await fetch("./api/content", {
+      headers: { accept: "application/json" },
+      cache: "no-store",
+    });
+    if (!response.ok) throw new Error(`content api ${response.status}`);
+    const payload = await response.json();
+    if (!payload?.products?.length && !payload?.filters?.length && !payload?.videos?.stories?.length) {
+      return fallbackData;
+    }
+    track("content_source_loaded", {
+      source: payload.source || "remote",
+      configured: Boolean(payload.configured),
+    });
+    return mergeContentData(payload);
+  } catch (error) {
+    track("content_source_fallback", { reason: error.message });
+    return fallbackData;
+  }
 }
 
 function productById(productId) {
@@ -202,6 +283,7 @@ function renderVideoContent() {
     )
     .join("");
 
+  videoFrame.classList.remove("has-video", "playing");
   if (feature.src) {
     videoFrame.classList.add("has-video");
   }
@@ -470,8 +552,17 @@ window.addEventListener("keydown", (event) => {
   }
 });
 
-renderFilters();
-renderProducts();
-renderVideoContent();
-updateHeader();
-renderCart();
+function renderApp() {
+  renderFilters();
+  renderProducts();
+  renderVideoContent();
+  updateHeader();
+  renderCart();
+}
+
+async function initContent() {
+  data = await loadRemoteContent();
+  renderApp();
+}
+
+initContent();

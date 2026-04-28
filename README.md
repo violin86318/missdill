@@ -34,3 +34,13 @@ https://missdill.beyondmotion.net/
 ```
 
 The Worker implementation is in `cloudflare/worker.js`. Deployment notes are in `DEPLOYMENT.md`.
+
+## Content Editing
+
+The website supports Feishu Bitable as a lightweight content backend for products, courses, categories, video stories, and settings.
+
+Setup guide:
+
+```text
+FEISHU_BITABLE_SETUP.md
+```

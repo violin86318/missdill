@@ -69,3 +69,19 @@ Use the custom domain flag when redeploying so the Worker keeps both triggers:
 ```bash
 npx wrangler deploy --domain missdill.beyondmotion.net
 ```
+
+## Feishu Bitable Content
+
+Dynamic content is served by the Worker endpoint:
+
+```text
+https://missdill.beyondmotion.net/api/content
+```
+
+Before enabling it, configure Worker secrets from `FEISHU_BITABLE_SETUP.md`. Without those secrets the website automatically uses the static fallback in `content-data.js`.
+
+Health check:
+
+```text
+https://missdill.beyondmotion.net/api/health
+```
