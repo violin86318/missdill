@@ -35,6 +35,12 @@ Route:
 missdill.beyondmotion.net/*
 ```
 
+Custom domain:
+
+```text
+missdill.beyondmotion.net
+```
+
 Origin:
 
 ```text
@@ -43,12 +49,23 @@ https://violin86318.github.io/missdill
 
 The Worker maps `/` to `/index.html` and forwards static assets to the matching path under the GitHub Pages project path.
 
-## DNS Requirement
+## DNS Status
 
-`missdill.beyondmotion.net` must be proxied by Cloudflare. If no record exists, create a proxied CNAME:
+The Worker custom domain created a proxied, read-only DNS record managed by Cloudflare Workers:
 
 ```text
-name: missdill
-target: violin86318.github.io
+type: AAAA
+name: missdill.beyondmotion.net
+content: 100::
 proxied: true
+```
+
+Do not replace this with a manual GitHub Pages CNAME unless the Worker custom domain is intentionally removed.
+
+## Deploy Command
+
+Use the custom domain flag when redeploying so the Worker keeps both triggers:
+
+```bash
+npx wrangler deploy --domain missdill.beyondmotion.net
 ```

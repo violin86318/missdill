@@ -33,4 +33,4 @@ Cloudflare Worker proxy target:
 https://missdill.beyondmotion.net/
 ```
 
-The Worker configuration is in `wrangler.toml` and `cloudflare/worker.js`.
+The Worker implementation is in `cloudflare/worker.js`. Deployment notes are in `DEPLOYMENT.md`.
