@@ -125,22 +125,32 @@ async function feishuGet(env, path, query = {}) {
 async function listRecords(env, tableId) {
   if (!tableId) return [];
   const records = [];
-  let pageToken = "";
+  let offset = 0;
 
   do {
     const data = await feishuGet(
       env,
-      `/bitable/v1/apps/${encodeURIComponent(env.FEISHU_APP_TOKEN)}/tables/${encodeURIComponent(tableId)}/records`,
+      `/base/v3/bases/${encodeURIComponent(env.FEISHU_APP_TOKEN)}/tables/${encodeURIComponent(tableId)}/records`,
       {
-        page_size: 500,
-        page_token: pageToken
+        limit: 500,
+        offset
       }
     );
-    records.push(...(data.items || []));
-    pageToken = data.has_more ? data.page_token : "";
-  } while (pageToken);
+    records.push(...normalizeBaseV3Records(data));
+    offset += Array.isArray(data.data) ? data.data.length : 0;
+    if (!data.has_more || !offset) break;
+  } while (true);
 
   return records;
+}
+
+function normalizeBaseV3Records(data = {}) {
+  if (Array.isArray(data.items)) return data.items;
+  const fields = data.fields || [];
+  return (data.data || []).map((row, rowIndex) => ({
+    record_id: data.record_id_list?.[rowIndex] || "",
+    fields: Object.fromEntries(fields.map((fieldName, index) => [fieldName, row[index]]))
+  }));
 }
 
 function compactObject(value) {
@@ -254,7 +264,7 @@ function recordsToVideoStories(records) {
     .map((record) => {
       const fields = record.fields || {};
       if (!visibleValue(fieldValue(fields, ["显示", "visible", "Visible"]))) return null;
-      const id = scalarValue(fieldValue(fields, ["ID", "id"]));
+      const id = scalarValue(fieldValue(fields, ["ID", "id", "视频ID"]));
       const title = scalarValue(fieldValue(fields, ["标题", "title"]));
       if (!title) return null;
       return {
